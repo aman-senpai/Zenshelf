@@ -1,0 +1,12 @@
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+*.xcscmblueprint
+xcuserdata/
+
+# macOS
+.mimocode/
+.DS_Store
+*.swp
+*~
