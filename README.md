@@ -35,9 +35,19 @@ ZenShelf lives in your menu bar and syncs your Zen Browser Essentials. Click an 
 
 ## Installation
 
-1. Download and move **ZenShelf** to your Applications folder
-2. Open ZenShelf — it appears in the menu bar
-3. Grant Accessibility permission when prompted (System Settings → Privacy & Security → Accessibility)
+### Homebrew (recommended)
+
+```bash
+brew tap aman-senpai/apps
+brew install --cask zenshelf
+```
+
+### Manual
+
+1. Download the latest `.zip` from [Releases](https://github.com/aman-senpai/Zenshelf/releases)
+2. Unzip and move **ZenShelf** to your Applications folder
+3. Open ZenShelf — it appears in the menu bar
+4. Grant Accessibility permission when prompted (System Settings → Privacy & Security → Accessibility)
 
 ## How It Works
 
