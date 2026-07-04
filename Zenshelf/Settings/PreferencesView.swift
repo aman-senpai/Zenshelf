@@ -47,10 +47,10 @@ private struct GeneralPreferencesPane: View {
 private struct AboutPreferencesPane: View {
     var body: some View {
         VStack(spacing: 16) {
-            Image(systemName: "square.grid.2x2.fill")
-                .font(.system(size: 48))
-                .foregroundStyle(.primary)
-                .symbolRenderingMode(.hierarchical)
+            Image("AppLogo")
+                .resizable()
+                .scaledToFit()
+                .frame(width: 96, height: 96)
                 .accessibilityHidden(true)
 
             Text("ZenShelf")

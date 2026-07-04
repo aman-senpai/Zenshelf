@@ -53,16 +53,17 @@ enum EssentialSelector {
             // Hide self so Zen receives the shortcut, not us.
             NSApp.hide(nil)
 
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.45) {
-                application.activate(options: [.activateIgnoringOtherApps, .activateAllWindows])
+            // Cold-launch delay: NSWorkspace.openApplication completes when the
+            // process starts, but Zen's Firefox-based UI needs extra time to
+            // render its window before it can receive keyboard events.
+            let shortcutDelay: TimeInterval = 1.5
 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    postCommandDigit(keyCode: keyCode, to: application)
-                    AppLogger.browser.debug(
-                        "Sent ⌘\(selectionIndex, privacy: .public) to Zen (PID \(application.processIdentifier))"
-                    )
-                    completion?(true)
-                }
+            DispatchQueue.main.asyncAfter(deadline: .now() + shortcutDelay) {
+                postCommandDigit(keyCode: keyCode, to: application)
+                AppLogger.browser.debug(
+                    "Sent ⌘\(selectionIndex, privacy: .public) to Zen (PID \(application.processIdentifier))"
+                )
+                completion?(true)
             }
         }
     }
